@@ -1,0 +1,376 @@
+<!DOCTYPE HTML>
+<!--
+	Prologue by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Prologue by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<div id="header">
+
+				<div class="top">
+
+					<!-- Logo -->
+						<div id="logo">
+							<span class="image avatar48"><img src="images/small-face.jpg" alt="" /></span>
+							<h1 id="title">Caleb Severn</h1>
+							<p>Senior Data Scientist</p>
+						</div>
+
+					<!-- Nav -->
+						<nav id="nav">
+							<ul>
+								<li><a href="index.html" id="top-link"><span class="icon solid fa-home">Home</span></a></li>
+								<li><a href="#world-news" id="portfolio-link"><span class="icon solid fa-th">World News</span></a></li>
+								<li><a href="#monte-carlo" id="about-link"><span class="icon solid fa-th">Monte Carlo</span></a></li>
+								<li><a href="#word-2-vec" id="contact-link"><span class="icon solid fa-th">Word-2-Vec</span></a></li>
+							</ul>
+						</nav>
+
+				</div>
+
+				<div class="bottom">
+
+					<!-- Social Icons -->
+
+				</div>
+
+			</div>
+
+		<!-- Main -->
+			<div id="main">
+
+				<!-- Portfolio -->
+					<section id="world-news" class="two">
+						<div class="container">
+
+							<header>
+								<h2>World News</h2>
+							</header>
+
+							<p>Below is a map of the world where if you mouse over each country you get the top news story that day. Each top story has been translated, summarised, and then sentiment analysed (using Vader). 
+							The Colours indicate the sentiment,so Red is a Negative sentiment, Blue is neutral, and Green is positive.
+							This means whatever type of news you want to read, or if you want to just expand your horizons, you can.
+							<i>A list of website sources can be found on github, if you have suggestions for more reliable sources, email me </i><br><br>
+							<i>Last Updated : [TIME]</i></p>
+
+							
+						</div>
+						  <div>
+							<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+							<script type="text/javascript">
+							  google.charts.load('current', {
+								'packages':['geochart'],
+								// Note: you will need to get a mapsApiKey for your project.
+								// See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
+								'mapsApiKey': 'AIzaSyDDAqYwoAvm743offnj-yIu6KUwxFWU7dI'
+							  });
+							  google.charts.setOnLoadCallback(drawRegionsMap);
+								
+							  function drawRegionsMap() {
+								var data = new google.visualization.DataTable();
+								data.addColumn('string', 'Country'); // Implicit domain label col.
+								data.addColumn('number', 'Value');
+								data.addColumn({type:'string', role:'tooltip'}); // 
+							
+
+
+								data.addRows([
+
+								[INSERT DATA HERE]
+								]);
+								var options = {colorAxis: {colors: ['#FF0000','#0040F8', '#03C800']},
+											   backgroundColor:'#e6f0ff',
+											   enableRegionInteractivity: 'True',
+											   keepAspectRatio: 'True',}
+
+								var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+								google.visualization.events.addListener(chart, 'select', function () {
+
+									var selection = chart.getSelection();
+									if (selection.length > 0) {
+
+										data_link = data.getValue(selection[0].row,2);
+
+										window.open(data_link.split("Link").at(-1));
+									}
+									});
+									chart.draw(data, options);
+							  		}
+							</script>
+						  </div>
+						  <body>
+							<div id="regions_div" style="width: 100%; height: 100%;"></div>
+						  </body>
+					</section>
+
+				<!-- About Me -->
+					<section id="monte-carlo" class="three">
+						<div class="container">
+
+							<header>
+								<h2>Monte Carlo Simulation</h2>
+							</header>
+							
+							<p>There are far better explanations online as to how the Monte Carlo simulation works. 
+							But I'll do a very short summarised version here. Using the knowledge that the area of a Circle = 4 &#960; r <sup>2</sup> and that the area of a Square = 2r <sup>2</sup>, 
+							then we can say that the area of the Circle over the Area of the Square is equal to 4(Points in Cirlce/Points in Square);.
+							Below is a visualisation showing the estimated value of &#960; based on how many points you add, you can change the number of points and see how it changes. The more points the more accurate it gets, but at a certain point the computational cost outweighs the benefits. 
+							It is worth noting I set the value of the Radius to 2, as it demostrates differences better. </p>
+						
+						
+						</div>
+						<div class="myDivElement">
+						<h3>Number of Points</h3>
+						<select style="font-size:30px" name="Monte_Carlo" id="Monte_Carlo" onchange="setImage(this);">
+							<option value="/images/R_2_N_10.png">10</option>
+							<option value="/images/R_2_N_100.png">100</option>
+							<option value="/images/R_2_N_200.png">200</option>
+							<option value="/images/R_2_N_300.png">300</option>
+							<option value="/images/R_2_N_400.png">400</option>
+							<option value="/images/R_2_N_500.png">500</option>
+							<option value="/images/R_2_N_600.png">600</option>
+							<option value="/images/R_2_N_700.png">700</option>
+							<option value="/images/R_2_N_800.png">800</option>
+							<option value="/images/R_2_N_900.png">900</option>
+							<option value="/images/R_2_N_1000.png">1000</option>
+							<option value="/images/R_2_N_1100.png">1100</option>
+							<option value="/images/R_2_N_1200.png">1200</option>
+							<option value="/images/R_2_N_1300.png">1300</option>
+							<option value="/images/R_2_N_1400.png">1400</option>
+							<option value="/images/R_2_N_1500.png">1500</option>
+							<option value="/images/R_2_N_1600.png">1600</option>
+							<option value="/images/R_2_N_1700.png">1700</option>
+							<option value="/images/R_2_N_1800.png">1800</option>
+							<option value="/images/R_2_N_1900.png">1900</option>
+							<option value="/images/R_2_N_2000.png">2000</option>
+							<option value="/images/R_2_N_2100.png">2100</option>
+							<option value="/images/R_2_N_2200.png">2200</option>
+							<option value="/images/R_2_N_2300.png">2300</option>
+							<option value="/images/R_2_N_2400.png">2400</option>
+							<option value="/images/R_2_N_2500.png">2500</option>
+							<option value="/images/R_2_N_2600.png">2600</option>
+							<option value="/images/R_2_N_2700.png">2700</option>
+							<option value="/images/R_2_N_2800.png">2800</option>
+							<option value="/images/R_2_N_2900.png">2900</option>
+							<option value="/images/R_2_N_3000.png">3000</option>
+							<option value="/images/R_2_N_3100.png">3100</option>
+							<option value="/images/R_2_N_3200.png">3200</option>
+							<option value="/images/R_2_N_3300.png">3300</option>
+							<option value="/images/R_2_N_3400.png">3400</option>
+							<option value="/images/R_2_N_3500.png">3500</option>
+							<option value="/images/R_2_N_3600.png">3600</option>
+							<option value="/images/R_2_N_3700.png">3700</option>
+							<option value="/images/R_2_N_3800.png">3800</option>
+							<option value="/images/R_2_N_3900.png">3900</option>
+							<option value="/images/R_2_N_4000.png">4000</option>
+							<option value="/images/R_2_N_4100.png">4100</option>
+							<option value="/images/R_2_N_4200.png">4200</option>
+							<option value="/images/R_2_N_4300.png">4300</option>
+							<option value="/images/R_2_N_4400.png">4400</option>
+							<option value="/images/R_2_N_4500.png">4500</option>
+							<option value="/images/R_2_N_4600.png">4600</option>
+							<option value="/images/R_2_N_4700.png">4700</option>
+							<option value="/images/R_2_N_4800.png">4800</option>
+							<option value="/images/R_2_N_4900.png">4900</option>
+							<option value="/images/R_2_N_5000.png">5000</option>
+							<option value="/images/R_2_N_5100.png">5100</option>
+							<option value="/images/R_2_N_5200.png">5200</option>
+							<option value="/images/R_2_N_5300.png">5300</option>
+							<option value="/images/R_2_N_5400.png">5400</option>
+							<option value="/images/R_2_N_5500.png">5500</option>
+							<option value="/images/R_2_N_5600.png">5600</option>
+							<option value="/images/R_2_N_5700.png">5700</option>
+							<option value="/images/R_2_N_5800.png">5800</option>
+							<option value="/images/R_2_N_5900.png">5900</option>
+							<option value="/images/R_2_N_6000.png">6000</option>
+							<option value="/images/R_2_N_6100.png">6100</option>
+							<option value="/images/R_2_N_6200.png">6200</option>
+							<option value="/images/R_2_N_6300.png">6300</option>
+							<option value="/images/R_2_N_6400.png">6400</option>
+							<option value="/images/R_2_N_6500.png">6500</option>
+							<option value="/images/R_2_N_6600.png">6600</option>
+							<option value="/images/R_2_N_6700.png">6700</option>
+							<option value="/images/R_2_N_6800.png">6800</option>
+							<option value="/images/R_2_N_6900.png">6900</option>
+							<option value="/images/R_2_N_7000.png">7000</option>
+							<option value="/images/R_2_N_7100.png">7100</option>
+							<option value="/images/R_2_N_7200.png">7200</option>
+							<option value="/images/R_2_N_7300.png">7300</option>
+							<option value="/images/R_2_N_7400.png">7400</option>
+							<option value="/images/R_2_N_7500.png">7500</option>
+							<option value="/images/R_2_N_7600.png">7600</option>
+							<option value="/images/R_2_N_7700.png">7700</option>
+							<option value="/images/R_2_N_7800.png">7800</option>
+							<option value="/images/R_2_N_7900.png">7900</option>
+							<option value="/images/R_2_N_8000.png">8000</option>
+							<option value="/images/R_2_N_8100.png">8100</option>
+							<option value="/images/R_2_N_8200.png">8200</option>
+							<option value="/images/R_2_N_8300.png">8300</option>
+							<option value="/images/R_2_N_8400.png">8400</option>
+							<option value="/images/R_2_N_8500.png">8500</option>
+							<option value="/images/R_2_N_8600.png">8600</option>
+							<option value="/images/R_2_N_8700.png">8700</option>
+							<option value="/images/R_2_N_8800.png">8800</option>
+							<option value="/images/R_2_N_8900.png">8900</option>
+							<option value="/images/R_2_N_9000.png">9000</option>
+							<option value="/images/R_2_N_9100.png">9100</option>
+							<option value="/images/R_2_N_9200.png">9200</option>
+							<option value="/images/R_2_N_9300.png">9300</option>
+							<option value="/images/R_2_N_9400.png">9400</option>
+							<option value="/images/R_2_N_9500.png">9500</option>
+							<option value="/images/R_2_N_9600.png">9600</option>
+							<option value="/images/R_2_N_9700.png">9700</option>
+							<option value="/images/R_2_N_9800.png">9800</option>
+							<option value="/images/R_2_N_9900.png">9900</option>
+							<option value="/images/R_2_N_10000.png">10000</option>
+							<option value="/images/R_2_N_11000.png">11000</option>
+							<option value="/images/R_2_N_12000.png">12000</option>
+							<option value="/images/R_2_N_13000.png">13000</option>
+							<option value="/images/R_2_N_14000.png">14000</option>
+							<option value="/images/R_2_N_15000.png">15000</option>
+							<option value="/images/R_2_N_16000.png">16000</option>
+							<option value="/images/R_2_N_17000.png">17000</option>
+							<option value="/images/R_2_N_18000.png">18000</option>
+							<option value="/images/R_2_N_19000.png">19000</option>
+							<option value="/images/R_2_N_20000.png">20000</option>
+							<option value="/images/R_2_N_21000.png">21000</option>
+							<option value="/images/R_2_N_22000.png">22000</option>
+							<option value="/images/R_2_N_23000.png">23000</option>
+							<option value="/images/R_2_N_24000.png">24000</option>
+							<option value="/images/R_2_N_25000.png">25000</option>
+							<option value="/images/R_2_N_26000.png">26000</option>
+							<option value="/images/R_2_N_27000.png">27000</option>
+							<option value="/images/R_2_N_28000.png">28000</option>
+							<option value="/images/R_2_N_29000.png">29000</option>
+							<option value="/images/R_2_N_30000.png">30000</option>
+							<option value="/images/R_2_N_31000.png">31000</option>
+							<option value="/images/R_2_N_32000.png">32000</option>
+							<option value="/images/R_2_N_33000.png">33000</option>
+							<option value="/images/R_2_N_34000.png">34000</option>
+							<option value="/images/R_2_N_35000.png">35000</option>
+							<option value="/images/R_2_N_36000.png">36000</option>
+							<option value="/images/R_2_N_37000.png">37000</option>
+							<option value="/images/R_2_N_38000.png">38000</option>
+							<option value="/images/R_2_N_39000.png">39000</option>
+							<option value="/images/R_2_N_40000.png">40000</option>
+							<option value="/images/R_2_N_41000.png">41000</option>
+							<option value="/images/R_2_N_42000.png">42000</option>
+							<option value="/images/R_2_N_43000.png">43000</option>
+							<option value="/images/R_2_N_44000.png">44000</option>
+							<option value="/images/R_2_N_45000.png">45000</option>
+							<option value="/images/R_2_N_46000.png">46000</option>
+							<option value="/images/R_2_N_47000.png">47000</option>
+							<option value="/images/R_2_N_48000.png">48000</option>
+							<option value="/images/R_2_N_49000.png">49000</option>
+							<option value="/images/R_2_N_50000.png">50000</option>
+							<option value="/images/R_2_N_51000.png">51000</option>
+							<option value="/images/R_2_N_52000.png">52000</option>
+							<option value="/images/R_2_N_53000.png">53000</option>
+							<option value="/images/R_2_N_54000.png">54000</option>
+							<option value="/images/R_2_N_55000.png">55000</option>
+							<option value="/images/R_2_N_56000.png">56000</option>
+							<option value="/images/R_2_N_57000.png">57000</option>
+							<option value="/images/R_2_N_58000.png">58000</option>
+							<option value="/images/R_2_N_59000.png">59000</option>
+							<option value="/images/R_2_N_60000.png">60000</option>
+							<option value="/images/R_2_N_61000.png">61000</option>
+							<option value="/images/R_2_N_62000.png">62000</option>
+							<option value="/images/R_2_N_63000.png">63000</option>
+							<option value="/images/R_2_N_64000.png">64000</option>
+							<option value="/images/R_2_N_65000.png">65000</option>
+							<option value="/images/R_2_N_66000.png">66000</option>
+							<option value="/images/R_2_N_67000.png">67000</option>
+							<option value="/images/R_2_N_68000.png">68000</option>
+							<option value="/images/R_2_N_69000.png">69000</option>
+							<option value="/images/R_2_N_70000.png">70000</option>
+							<option value="/images/R_2_N_71000.png">71000</option>
+							<option value="/images/R_2_N_72000.png">72000</option>
+							<option value="/images/R_2_N_73000.png">73000</option>
+							<option value="/images/R_2_N_74000.png">74000</option>
+							<option value="/images/R_2_N_75000.png">75000</option>
+							<option value="/images/R_2_N_76000.png">76000</option>
+							<option value="/images/R_2_N_77000.png">77000</option>
+							<option value="/images/R_2_N_78000.png">78000</option>
+							<option value="/images/R_2_N_79000.png">79000</option>
+							<option value="/images/R_2_N_80000.png">80000</option>
+							<option value="/images/R_2_N_81000.png">81000</option>
+							<option value="/images/R_2_N_82000.png">82000</option>
+							<option value="/images/R_2_N_83000.png">83000</option>
+							<option value="/images/R_2_N_84000.png">84000</option>
+							<option value="/images/R_2_N_85000.png">85000</option>
+							<option value="/images/R_2_N_86000.png">86000</option>
+							<option value="/images/R_2_N_87000.png">87000</option>
+							<option value="/images/R_2_N_88000.png">88000</option>
+							<option value="/images/R_2_N_89000.png">89000</option>
+							<option value="/images/R_2_N_90000.png">90000</option>
+							<option value="/images/R_2_N_91000.png">91000</option>
+							<option value="/images/R_2_N_92000.png">92000</option>
+							<option value="/images/R_2_N_93000.png">93000</option>
+							<option value="/images/R_2_N_94000.png">94000</option>
+							<option value="/images/R_2_N_95000.png">95000</option>
+							<option value="/images/R_2_N_96000.png">96000</option>
+							<option value="/images/R_2_N_97000.png">97000</option>
+							<option value="/images/R_2_N_98000.png">98000</option>
+							<option value="/images/R_2_N_99000.png">99000</option>
+							
+						</select>
+					</div>
+					<img src="images/R_2_N_10.png" height="90%" width="90%" name="image-swap"/>
+						<script>
+						function setImage(select){
+						  var image = document.getElementsByName("image-swap")[0];
+						  image.src = select.options[select.selectedIndex].value;
+						}  
+						</script>
+					</section>
+
+				<!-- Contact -->
+					<section id="word-2-vec" class="three">
+						<div class="container">
+
+							<header>
+								<h2>Word-2-Vec</h2>
+							</header>
+
+
+							<p> Below is a form you can use to interact with my Word-2-Vec model. The model is trained using Wikipedia Abstracts.
+							NLP cleaning has been run on the abstracts that is different to gensims Word-2-Vec model. Positive values are what you want
+							the results to be associated with, negative values are words you do not want the return words to be associated with.
+							Please input the words seperated by commas, if you want to utilize bigrams, then connect the words with an "_", for example
+							Davd_Attenborough would return the most similar results to instances where David Attenborough is mentioned.</p>
+							<iframe src="https://calebw2v.pagekite.me/" title="iframe" width="100%" height="600vh"></iframe>
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Footer -->
+			<div id="footer">
+
+				<!-- Copyright -->
+					<ul class="copyright">
+						<li>&copy; Caleb Severn. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
